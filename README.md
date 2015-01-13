@@ -1,6 +1,6 @@
 # has-require [![Build Status](https://travis-ci.org/bendrucker/has-require.svg?branch=master)](https://travis-ci.org/bendrucker/has-require)
 
-Check if a string requires a particular module.
+Check if a string of code requires a specified module by id.
 
 ## Installing
 
