@@ -17,3 +17,15 @@ Checks a string of `code` for a `require(id)`, where `id` is an valid `require` 
 ```js
 hasRequire('require(\'foo\'', 'foo'); // => true
 ```
+
+<hr>
+
+### `Checker`
+
+##### `new hasRequire.Checker(code)` -> `checker`
+
+Constructs a new `checker` instance for a string of `code`, allowing you to performantly check many module ids without closures.
+
+##### `checker.has(id)` -> `Boolean`
+
+Checks whether the code passed to `Checker` requires the specified module `id`.
