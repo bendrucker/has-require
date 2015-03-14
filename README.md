@@ -15,7 +15,7 @@ $ npm install has-require
 Checks a string of `code` for a `require(id)`, where `id` is an valid `require` input such as a package name or path. 
 
 ```js
-hasRequire('require(\'foo\'', 'foo'); // => true
+hasRequire("require('foo')", 'foo'); // => true
 ```
 
 <hr>
