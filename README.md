@@ -1,39 +1,81 @@
 # has-require [![Build Status](https://travis-ci.org/bendrucker/has-require.svg?branch=master)](https://travis-ci.org/bendrucker/has-require)
 
-Check if a string of code requires a specified module by id.
+> Check if code requires any module or a specific id
 
 ## Installing
 
 ```bash
-$ npm install has-require
+$ npm install --save has-require
 ```
+
+## Usage
+
+```js
+var hasRequire = require('has-require')
+hasRequire('require("foo")', 'foo') // => true
+hasRequire.any('require') // => false
 
 ## API
 
-##### `hasRequire(code, id)` -> `Boolean`
+For full implementation details, see the [`Checker`](#checker) API.
 
-Checks a string of `code` for a `require(id)`, where `id` is an valid `require` input such as a package name or path. 
+#### `hasRequire(code, id)` -> `boolean`
 
-```js
-hasRequire("require('foo')", 'foo'); // => true
-```
+##### code
 
-##### `hasRequire.any(code)` -> `Boolean`
+*Required*  
+Type: `string`
 
-Checks if any string literal is required.
+The code to check.
+
+##### id
+
+*Required*  
+Type: `string`
+
+The module id to check, e.g. `'http'`.
+
+##### `hasRequire.any(code)` -> `boolean`
+
+#### code
+
+*Required*  
+Type: `string`
+
+The code to check.
 
 <hr>
 
 ### `Checker`
 
-##### `new hasRequire.Checker(code)` -> `checker`
+#### `new hasRequire.Checker(code)` -> `checker`
 
-Constructs a new `checker` instance for a string of `code`, allowing you to performantly check many module ids.
+##### code
 
-##### `checker.any()` -> `Boolean`
+*Required*  
+Type: `string`
 
-Checks if any string literal is required. The result is cached.
+The code to store on the checker.
 
-##### `checker.has(id)` -> `Boolean`
+##### `checker.any()` -> `boolean`
 
-Checks the specified module id is required. Uses `checker.any()` first, so calling `has` for multiple ids when no `require` is present (`!checker.any()`) will avoid needlessly re-testing the code.
+Checks if any string literal is required. The result is cached. The following code won't be matched:
+
+* `require`
+* `require()`
+* `require('')`
+
+##### `checker.has(id)` -> `boolean`
+
+##### id
+
+*Required*  
+Type: `string`
+
+The module id to check, e.g. `'http'`.
+
+Uses `checker.any()` first, so calling `has` for multiple ids when no `require` is present (`!checker.any()`) will avoid needlessly re-testing the code.
+
+## License
+
+MIT © [Ben Drucker](http://bendrucker.me)
