@@ -4,7 +4,7 @@
   "description": "Check if a string of code requires a specified module by id",
   "main": "index.js",
   "scripts": {
-    "test": "tape test.js"
+    "test": "standard && tape test.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/bendrucker/has-require",
   "devDependencies": {
+    "standard": "^4.0.1",
     "tape": "^4.0.0"
   },
   "dependencies": {
