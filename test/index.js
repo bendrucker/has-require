@@ -25,6 +25,13 @@ describe('has-require', function () {
     expect(hasRequire).to.throw('id is required');
   });
 
+  it('can match any', function () {
+    expect(hasRequire.any('require("foo")')).to.be.true;
+    expect(hasRequire.any("require('foo')")).to.be.true;
+    expect(hasRequire.any("require()")).to.be.false;
+    expect(hasRequire.any("require")).to.be.false;
+  })
+
   it('exposes a constructor for storing code', function () {
     var code = 'require("foo")';
     var checker = new hasRequire.Checker(code);

@@ -18,14 +18,22 @@ Checks a string of `code` for a `require(id)`, where `id` is an valid `require` 
 hasRequire("require('foo')", 'foo'); // => true
 ```
 
+##### `hasRequire.any(code)` -> `Boolean`
+
+Checks if any string literal is required.
+
 <hr>
 
 ### `Checker`
 
 ##### `new hasRequire.Checker(code)` -> `checker`
 
-Constructs a new `checker` instance for a string of `code`, allowing you to performantly check many module ids without closures.
+Constructs a new `checker` instance for a string of `code`, allowing you to performantly check many module ids.
+
+##### `checker.any()` -> `Boolean`
+
+Checks if any string literal is required. The result is cached.
 
 ##### `checker.has(id)` -> `Boolean`
 
-Checks whether the code passed to `Checker` requires the specified module `id`.
+Checks the specified module id is required. Uses `checker.any()` first, so calling `has` for multiple ids when no `require` is present (`!checker.any()`) will avoid needlessly re-testing the code.
