@@ -16,7 +16,7 @@ function RequireChecker (code) {
   this.code = code
 }
 
-var anyRegExp = createRegExp('[A-Za-z0-9_.-]+')
+var anyRegExp = createRegExp('[A-Za-z0-9/_.-]+')
 RequireChecker.prototype.any = function anyRequire () {
   if (this._any != null) return this._any
   this._any = anyRegExp.test(this.code)

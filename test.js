@@ -11,6 +11,9 @@ test(function (t) {
   t.ok(hasRequire('require( "foo" )', 'foo'), 'whitespace')
   t.notOk(hasRequire('require("foo")', 'bar'), 'match id')
 
+  t.ok(hasRequire('require("foo/bar")', 'foo/bar'), 'slash')
+  t.ok(hasRequire('require("./foo/bar")', './foo/bar'), 'dot slash')
+
   t.ok(hasRequire.any('require("foo")'), 'normal')
   t.ok(hasRequire.any('require("foo-bar")'), 'dash')
   t.ok(hasRequire.any('require("foo_bar")'), 'underscore')
