@@ -1,6 +1,6 @@
 {
   "name": "has-require",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Check if code requires any module or a specific id",
   "main": "index.js",
   "scripts": {
