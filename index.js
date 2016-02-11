@@ -2,15 +2,17 @@
 
 var escape = require('escape-string-regexp')
 
-exports = module.exports = function hasRequire (code, id) {
+module.exports = hasRequire
+
+function hasRequire (code, id) {
   return new RequireChecker(code).has(id)
 }
 
-exports.any = function anyRequire (code) {
+hasRequire.any = function anyRequire (code) {
   return new RequireChecker(code).any()
 }
 
-exports.Checker = RequireChecker
+hasRequire.Checker = RequireChecker
 
 function RequireChecker (code) {
   this.code = code
@@ -23,7 +25,7 @@ RequireChecker.prototype.any = function anyRequire () {
   return this._any
 }
 
-RequireChecker.prototype.has = function hasRequire (id) {
+RequireChecker.prototype.has = function has (id) {
   if (!id) throw new Error('module id is required')
   return this.any() && createRegExp(escape(id)).test(this.code)
 }
