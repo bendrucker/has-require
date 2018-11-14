@@ -1,4 +1,4 @@
-# has-require [![Build Status](https://travis-ci.org/bendrucker/has-require.svg?branch=master)](https://travis-ci.org/bendrucker/has-require)
+# has-require [![Build Status](https://travis-ci.org/bendrucker/has-require.svg?branch=master)](https://travis-ci.org/bendrucker/has-require) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/has-require.svg)](https://greenkeeper.io/)
 
 > Check if code requires any module or a specific id
 
