@@ -25,6 +25,6 @@
     "tape": "^4.0.0"
   },
   "dependencies": {
-    "escape-string-regexp": "^1.0.3"
+    "escape-string-regexp": "^2.0.0"
   }
 }
